@@ -7,11 +7,11 @@ namespace GradeBook
     public class Book
     {
         private readonly List<double> _grades;
-        private readonly string _name;
+        public string Name;
 
         public Book(string name)
         {
-            this._name = name;
+            Name = name;
             _grades = new List<double>();
         }
         
@@ -36,7 +36,7 @@ namespace GradeBook
 
         public void ShowName()
         {
-            Console.WriteLine($"Book name is: {_name}");
+            Console.WriteLine($"Book name is: {Name}");
         }
 
         private double CalculateMin()
