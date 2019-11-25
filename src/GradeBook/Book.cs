@@ -17,8 +17,18 @@ namespace GradeBook
         
         public void AddGrade(double grade)
         {
-            _grades.Add(grade);
+            if (grade <= 100 && grade >= 0)
+            {
+                _grades.Add(grade);
+            }
+            else
+            {
+                Console.WriteLine($"Grade of {grade} is not valid. Must be between 0 and 100");
+            }
+
         }
+
+        public List<double> GetGrades() => _grades;
 
         public Statistics GetStats()
         {
