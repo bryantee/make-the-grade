@@ -57,5 +57,57 @@ namespace GradeBook.Tests
             
             Assert.Empty(grades);
         }
+
+        [Fact]
+        public void AddLetterGradeA()
+        {
+            var book = new Book("");
+            
+            book.AddLetterGrade('A');
+
+            var grades = book.GetGrades();
+            
+            Assert.Single(grades);
+            Assert.Equal(new List<double>{90}, grades);
+        }
+        
+        [Fact]
+        public void AddLetterGradeB()
+        {
+            var book = new Book("");
+            
+            book.AddLetterGrade('B');
+
+            var grades = book.GetGrades();
+            
+            Assert.Single(grades);
+            Assert.Equal(new List<double>{80}, grades);
+        }
+        
+        [Fact]
+        public void AddLetterGradeC()
+        {
+            var book = new Book("");
+            
+            book.AddLetterGrade('C');
+
+            var grades = book.GetGrades();
+            
+            Assert.Single(grades);
+            Assert.Equal(new List<double>{70}, grades);
+        }
+        
+        [Fact]
+        public void AddLetterGradeOther()
+        {
+            var book = new Book("");
+            
+            book.AddLetterGrade('Z');
+
+            var grades = book.GetGrades();
+            
+            Assert.Single(grades);
+            Assert.Equal(new List<double>{0}, grades);
+        }
     }
 }
