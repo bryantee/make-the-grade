@@ -9,10 +9,30 @@ namespace GradeBook
         static void Main()
         {
             var book = new Book("Tommy's grade book");
-            book.AddGrade(72.4);
-            book.AddGrade(90);
-            book.AddGrade(98);
-            book.AddGrade(64);
+            var quit = false;
+
+            while (quit != true)
+            {
+                Console.WriteLine("Enter a grade or 'q' to quit:");
+                var response = Console.ReadLine();
+                if (response != null && !string.Equals(response.ToLower(), "q"))
+                {
+                    try
+                    {
+                        var parsedResponse = double.Parse(response);
+                        book.AddGrade(parsedResponse);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    quit = true;
+                }
+            }
+
             book.ShowName();
             book.ShowStats();
         }
