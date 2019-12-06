@@ -1,11 +1,19 @@
 using System;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace GradeBook.Tests
 {
     public class BookTests
     {
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        public BookTests(ITestOutputHelper testOutputHelper)
+        {
+            _testOutputHelper = testOutputHelper;
+        }
+
         [Fact]
         public void BookCalculatesStatistics()
         {
@@ -96,7 +104,14 @@ namespace GradeBook.Tests
         {
             var book = new Book("");
 
-            book.AddGrade(-15.5);
+            try
+            {
+                book.AddGrade(-15.5);
+            }
+            catch (Exception ex)
+            {
+                _testOutputHelper.WriteLine(ex.Message);
+            }
 
             var grades = book.GetGrades();
 
@@ -108,7 +123,14 @@ namespace GradeBook.Tests
         {
             var book = new Book("");
 
-            book.AddGrade(395);
+            try
+            {
+                book.AddGrade(395);
+            }
+            catch (Exception ex)
+            {
+                _testOutputHelper.WriteLine(ex.Message);
+            }
 
             var grades = book.GetGrades();
 
