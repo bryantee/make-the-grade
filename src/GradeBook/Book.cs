@@ -22,21 +22,21 @@ namespace GradeBook
                 case 'A':
                     AddGrade(90);
                     break;
-            
+
                 case 'B':
                     AddGrade(80);
                     break;
-                
+
                 case 'C':
                     AddGrade(70);
                     break;
-                
+
                 default:
                     AddGrade(0);
                     break;
             }
         }
-        
+
         public void AddGrade(double grade)
         {
             if (grade <= 100 && grade >= 0)
@@ -47,14 +47,19 @@ namespace GradeBook
             {
                 Console.WriteLine($"Grade of {grade} is not valid. Must be between 0 and 100");
             }
-
         }
 
         public List<double> GetGrades() => _grades;
 
         public Statistics GetStats()
         {
-            return new Statistics {High = CalculateMax(), Low = CalculateMin(), Average = CalculateAvg()};
+            return new Statistics
+            {
+                High = CalculateMax(), 
+                Low = CalculateMin(), 
+                Average = CalculateAvg(), 
+                Letter = CalculateLetterGrade()
+            };
         }
 
         public void ShowStats()
@@ -64,6 +69,7 @@ namespace GradeBook
             Console.WriteLine($"The average is: {stats.Average:N2}");
             Console.WriteLine($"The highest grade is: {stats.High:N2}");
             Console.WriteLine($"The lowest grade is: {stats.Low:N2}");
+            Console.WriteLine($"The letter grade is: {stats.Letter}");
         }
 
         public void ShowName()
@@ -84,6 +90,20 @@ namespace GradeBook
         private double CalculateAvg()
         {
             return _grades.Average();
+        }
+
+        private char CalculateLetterGrade()
+        {
+            var average = CalculateAvg();
+
+            return average switch
+            {
+                var d when d >= 90.0 => 'A',
+                var d when d >= 80.0 => 'B',
+                var d when d >= 70.0 => 'C',
+                var d when d >= 60.0 => 'D',
+                _ => 'F'
+            };
         }
     }
 }
