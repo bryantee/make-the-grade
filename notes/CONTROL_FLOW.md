@@ -1,13 +1,10 @@
 # Control Flow
 
 ## Looping
-###[for](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for)
-
-###[foreach](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in)
-
-###[do](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/do)
-
-###[while](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/while)
+- [for](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for)
+- [foreach](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in)
+- [do](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/do)
+- [while](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/while)
 
 ### Jumping w/ `break` and `continue` (and `goto` but no one really uses it anyways 🤷‍♂️)
 - `break` will break out of the loop entirely
