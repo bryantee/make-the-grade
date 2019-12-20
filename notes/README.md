@@ -5,7 +5,7 @@
 - Testing
 - [Reference Types and Values Types](REF_TYPES.md)
 - [Control Flow](CONTROL_FLOW.md)
-- Building Types
+- [Building Types](BUILDING_TYPES.md)
 - Object Oriented Programming
 - Catching up w/ the Latest in C#
 - Going Further
