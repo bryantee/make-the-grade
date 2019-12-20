@@ -8,7 +8,7 @@ namespace GradeBook
     {
         static void Main()
         {
-            var book = new Book("Tommy's grade book");
+            var book = new Book("Tommy's grade book", "Science");
             var quit = false;
 
             while (quit != true)
@@ -34,6 +34,7 @@ namespace GradeBook
             }
 
             book.ShowName();
+            book.ShowCategory();
             book.ShowStats();
         }
     }

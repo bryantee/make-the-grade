@@ -1,3 +1,4 @@
+#nullable enable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,15 @@ namespace GradeBook
     public class Book
     {
         private readonly List<double> _grades;
-        public string Name;
+        public string Name { get; set; }
 
-        public Book(string name)
+        private readonly string _category;
+
+        public Book(string name, string? category = "")
         {
             Name = name;
             _grades = new List<double>();
+            _category = category;
         }
 
         public void AddLetterGrade(char letter)
@@ -55,9 +59,9 @@ namespace GradeBook
         {
             return new Statistics
             {
-                High = CalculateMax(), 
-                Low = CalculateMin(), 
-                Average = CalculateAvg(), 
+                High = CalculateMax(),
+                Low = CalculateMin(),
+                Average = CalculateAvg(),
                 Letter = CalculateLetterGrade()
             };
         }
@@ -75,6 +79,15 @@ namespace GradeBook
         public void ShowName()
         {
             Console.WriteLine($"Book name is: {Name}");
+        }
+
+
+        public void ShowCategory()
+        {
+            if (!string.IsNullOrEmpty(_category))
+            {
+                Console.WriteLine($"The category is: {_category}");
+            }
         }
 
         private double CalculateMin()
