@@ -100,25 +100,25 @@ namespace GradeBook.Tests
             Assert.Same(book1, book2);
         }
 
-        private void GetBookSetNameByRef(ref Book book, string newName)
+        private void GetBookSetNameByRef(ref InMemoryBook inMemoryBook, string newName)
         {
-            book = new Book(newName);
+            inMemoryBook = new InMemoryBook(newName);
         }
 
         
-        private void GetBookSetName(Book book, string newName)
+        private void GetBookSetName(InMemoryBook inMemoryBook, string newName)
         {
-            book = new Book(newName);
+            inMemoryBook = new InMemoryBook(newName);
         }
 
-        private void SetName(Book book, string newName)
+        private void SetName(InMemoryBook inMemoryBook, string newName)
         {
-            book.Name = newName;
+            inMemoryBook.Name = newName;
         }
         
-        private Book GetBook(string name)
+        private InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 }

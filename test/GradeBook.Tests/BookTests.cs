@@ -17,7 +17,7 @@ namespace GradeBook.Tests
         [Fact]
         public void BookCalculatesStatistics()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(90.1);
             book.AddGrade(90.5);
             book.AddGrade(77.3);
@@ -33,7 +33,7 @@ namespace GradeBook.Tests
         [Fact]
         public void BookCalculatesStatisticsLetterGradeA()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(90.1);
 
             var result = book.GetStats();
@@ -44,7 +44,7 @@ namespace GradeBook.Tests
         [Fact]
         public void BookCalculatesStatisticsLetterGradeB()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(80.1);
 
             var result = book.GetStats();
@@ -55,7 +55,7 @@ namespace GradeBook.Tests
         [Fact]
         public void BookCalculatesStatisticsLetterGradeC()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(70.1);
 
             var result = book.GetStats();
@@ -66,7 +66,7 @@ namespace GradeBook.Tests
         [Fact]
         public void BookCalculatesStatisticsLetterGradeD()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(60.1);
 
             var result = book.GetStats();
@@ -77,7 +77,7 @@ namespace GradeBook.Tests
         [Fact]
         public void BookCalculatesStatisticsLetterGradeF()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
             book.AddGrade(50.1);
 
             var result = book.GetStats();
@@ -89,7 +89,7 @@ namespace GradeBook.Tests
         [Fact]
         public void AddGradeWhenLessThan100AndGreaterThan0()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             book.AddGrade(90);
 
@@ -102,7 +102,7 @@ namespace GradeBook.Tests
         [Fact]
         public void NoGradeAddedWhenLessThan0()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             try
             {
@@ -121,7 +121,7 @@ namespace GradeBook.Tests
         [Fact]
         public void NoGradeAddedWhenGreaterThan100()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             try
             {
@@ -140,7 +140,7 @@ namespace GradeBook.Tests
         [Fact]
         public void AddLetterGradeA()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             book.AddLetterGrade('A');
 
@@ -153,7 +153,7 @@ namespace GradeBook.Tests
         [Fact]
         public void AddLetterGradeB()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             book.AddLetterGrade('B');
 
@@ -166,7 +166,7 @@ namespace GradeBook.Tests
         [Fact]
         public void AddLetterGradeC()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             book.AddLetterGrade('C');
 
@@ -179,7 +179,7 @@ namespace GradeBook.Tests
         [Fact]
         public void AddLetterGradeOther()
         {
-            var book = new Book("");
+            var book = new InMemoryBook("");
 
             book.AddLetterGrade('Z');
 

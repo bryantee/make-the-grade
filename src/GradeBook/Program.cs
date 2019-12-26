@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace GradeBook
 {
@@ -8,10 +6,17 @@ namespace GradeBook
     {
         static void Main()
         {
-            var book = new Book("Tommy's grade book", "Science");
-            var quit = false;
+            var book = new InMemoryBook("Tommy's grade book", "Science");
 
-            while (quit != true)
+            EnterGrades(book);
+            book.ShowName();
+            book.ShowCategory();
+            book.ShowStats();
+        }
+
+        private static void EnterGrades(IBook book)
+        {
+            while (true)
             {
                 Console.WriteLine("Enter a grade or 'q' to quit:");
                 var response = Console.ReadLine();
@@ -26,16 +31,16 @@ namespace GradeBook
                     {
                         Console.WriteLine(ex.Message);
                     }
+                    finally
+                    {
+                        Console.WriteLine("**");
+                    }
                 }
                 else
                 {
-                    quit = true;
+                    break;
                 }
             }
-
-            book.ShowName();
-            book.ShowCategory();
-            book.ShowStats();
         }
     }
 }
