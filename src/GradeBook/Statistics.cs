@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,6 +16,7 @@ namespace GradeBook
         public double Average => _scores.Average();
         public double High => _scores.Max();
         public double Low => _scores.Min();
+        public string ListScores() => string.Join(", ", _scores);
         
         public char Letter
         {
