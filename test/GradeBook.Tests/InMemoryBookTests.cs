@@ -5,15 +5,15 @@ using Xunit.Abstractions;
 
 namespace GradeBook.Tests
 {
-    public class BookTests
+    public class InMemoryBookTests
     {
         private readonly ITestOutputHelper _testOutputHelper;
 
-        public BookTests(ITestOutputHelper testOutputHelper)
+        public InMemoryBookTests(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper;
         }
-
+        
         [Fact]
         public void BookCalculatesStatistics()
         {

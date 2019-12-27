@@ -4,17 +4,17 @@ using System.Linq;
 
 namespace GradeBook
 {
-    public class InMemoryBook : Book, IBook
+    public class InMemoryBook : Book
     {
         private readonly List<double> _grades;
 
-        public InMemoryBook(string name) : base(name)
+        public InMemoryBook(string name, string category = "") : base(name, category)
         {
             Name = name;
             _grades = new List<double>();
         }
 
-        public void AddLetterGrade(char letter)
+        public override void AddLetterGrade(char letter)
         {
             switch (letter)
             {
@@ -50,18 +50,9 @@ namespace GradeBook
 
         public List<double> GetGrades() => _grades;
 
-        public override Statistics GetStats()
-        {
-            return new Statistics
-            {
-                High = CalculateMax(), 
-                Low = CalculateMin(), 
-                Average = CalculateAvg(), 
-                Letter = CalculateLetterGrade()
-            };
-        }
-
-        public void ShowStats()
+        public override Statistics GetStats() =>new Statistics(_grades);
+        
+        public override void ShowStats()
         {
             var stats = GetStats();
 
@@ -71,38 +62,9 @@ namespace GradeBook
             Console.WriteLine($"The letter grade is: {stats.Letter}");
         }
 
-        public void ShowName()
+        public override void ShowName()
         {
             Console.WriteLine($"Book name is: {Name}");
-        }
-
-        private double CalculateMin()
-        {
-            return _grades.Min();
-        }
-
-        private double CalculateMax()
-        {
-            return _grades.Max();
-        }
-
-        private double CalculateAvg()
-        {
-            return _grades.Average();
-        }
-
-        private char CalculateLetterGrade()
-        {
-            var average = CalculateAvg();
-
-            return average switch
-            {
-                var d when d >= 90.0 => 'A',
-                var d when d >= 80.0 => 'B',
-                var d when d >= 70.0 => 'C',
-                var d when d >= 60.0 => 'D',
-                _ => 'F'
-            };
         }
     }
 }
